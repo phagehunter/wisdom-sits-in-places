@@ -65,7 +65,7 @@ function InteractionCard({ i }: { i: Interaction }) {
       </div>
       {i.arrow && (
         <div className="text-[11px] text-red-300 border border-red-700/50 rounded px-1.5 py-0.5 inline-block">
-          ★ An arrow — a story aimed at someone, or an exam-flagged exchange
+          ★ An arrow — a story aimed at someone, or a pivotal exchange
         </div>
       )}
       <p className="text-[15px] text-slate-100 leading-relaxed">{i.summary}</p>
@@ -118,7 +118,7 @@ export default function CloseReadingPanel() {
           </p>
           <p className="text-[13px] text-slate-500 italic font-reading">
             Red dashed edges mark an <b className="text-red-300/90">arrow</b> — a story shot at
-            someone, in Nick Thompson’s metaphor, or an exchange the exam turns on.
+            someone, in Nick Thompson’s metaphor, or a pivotal exchange.
           </p>
         </div>
       )}
@@ -157,9 +157,9 @@ export default function CloseReadingPanel() {
                 {t.lang} · {DOMAIN_LABELS[t.domain]}
               </span>
             </div>
-            {t.exam && (
+            {t.essential && (
               <div className="text-[11px] text-orange-300 border border-orange-700/50 rounded px-1.5 py-0.5 inline-block">
-                ★ Flagged KEY / on the exam
+                ★ Key term
               </div>
             )}
             <p className="text-[15px] text-slate-100 leading-relaxed">{t.gloss}</p>
@@ -274,9 +274,9 @@ export default function CloseReadingPanel() {
               {KIND_LABELS[p.kind]} · {p.pages}
               {p.teacher ? ` · with ${p.teacher}` : ''}
             </div>
-            {p.exam && (
+            {p.essential && (
               <div className="text-[11px] text-orange-300 border border-orange-700/50 rounded px-1.5 py-0.5 inline-block">
-                ★ Flagged for the exam
+                ★ Key place
               </div>
             )}
             <div>

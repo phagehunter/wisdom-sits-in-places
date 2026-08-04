@@ -34,5 +34,5 @@ export const SECTION_TEACHER: Record<number, string> = {
 
 export const SECTION_COUNT = 6;
 
-/** Sections the exam emphasizes — the four essays and the closing meditation. */
-export const EXAM_FOCUS: number[] = [2, 3, 4, 5, 6];
+/** The sections that carry the argument — the four essays and the closing meditation. */
+export const CORE_SECTIONS: number[] = [2, 3, 4, 5, 6];

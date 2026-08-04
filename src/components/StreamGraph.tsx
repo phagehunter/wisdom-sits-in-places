@@ -126,10 +126,10 @@ export default function StreamGraph() {
               />
             ))}
 
-            {/* exam-focus overlay (sections 1–6: Introduction + Chs. 1–4) */}
+            {/* core-sections overlay — the four essays and the closing meditation */}
             <rect x={x(1)} y={0} width={x(6) - x(1)} height={innerH} fill="none" stroke="#e0c088" strokeDasharray="5 4" strokeWidth={1} pointerEvents="none" />
             <text x={x(3.3)} y={-10} textAnchor="middle" className="fill-sepia-300 text-[11px] italic">
-              Exam focus — the four essays &amp; the closing meditation
+              The core sections — the four essays &amp; the closing meditation
             </text>
 
             {/* section-range dimmers */}

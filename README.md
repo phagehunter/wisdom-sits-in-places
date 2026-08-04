@@ -1,6 +1,8 @@
 # Wisdom Sits in Places — Study Companion
 
-A single-page study aid for Keith H. Basso's *Wisdom Sits in Places: Landscape and Language Among the Western Apache* (University of New Mexico Press, 1996), built as a companion for an anthropology course covering the preface and all four essays.
+A single-page study aid for Keith H. Basso's *Wisdom Sits in Places: Landscape and Language Among the Western Apache* (University of New Mexico Press, 1996), covering the preface, all four essays, and the closing meditation on sense of place.
+
+A **★** throughout the app marks material flagged as essential — the passages, places and terms the book keeps returning to, and the ones worth committing to memory.
 
 It combines **distant reading** (the named land, a concept map, a narrative-gravity chart) with **close reading** (a chapter-by-chapter guide and entry-level commentary on every place, person and term), in a dark academic theme.
 
@@ -8,11 +10,11 @@ It combines **distant reading** (the named land, a concept map, a narrative-grav
 
 | View | What it shows |
 |---|---|
-| **Study / Exam** | The landing cram sheet: the book in one idea, the four Apache teachers and the lesson each one teaches, the four Chapter 1 places with toponym / naming / story / lesson, the three conditions of mind with the consequences of each failing, the hunting metaphor, why the horsemen never criticize Talbert directly, the short lists (what the land does, the four place-making questions, the three naming layers, the three modes of landscape involvement), the speech-genre table, every ★ flagged term, and a per-chapter nutshell. |
-| **The Named Land** | All eighteen named places as a schematic country — terrain glyphs, ring colour by naming layer (descriptive / clan / commemorative), gold stars on the exam places. Click any place for how it got its name, what happened there, and what Cibecue draws from it. **Deliberately not a map** — see *Ethics & orthography* below. |
+| **Study Guide** | The landing sheet: the book in one idea, the four Apache teachers and the lesson each one teaches, the four Chapter 1 places with toponym / naming / story / lesson, the three conditions of mind with the consequences of each failing, the hunting metaphor, why the horsemen never criticize Talbert directly, the short lists (what the land does, the four place-making questions, the three naming layers, the three modes of landscape involvement), the speech-genre table, every ★ starred term, and a per-chapter nutshell. |
+| **The Named Land** | All eighteen named places as a schematic country — terrain glyphs, ring colour by naming layer (descriptive / clan / commemorative), gold stars on the places that carry the most weight. Click any place for how it got its name, what happened there, and what Cibecue draws from it. **Deliberately not a map** — see *Ethics & orthography* below. |
 | **People & Places** | A force-directed graph in which people, places, story-figures and cited scholars share one network — because in Cibecue a mountain can be spoken of as a grandmother and a place can stalk a person for life. **Red dashed edges** mark an *arrow*: a story aimed at someone. Node size ∝ degree centrality (capped). The cited scholars start hidden so the Apache world reads first. |
-| **Key Terms** | The book's vocabulary as a concept map — Basso's analytic terms, the Western Apache words the argument turns on, and the theory he borrows, linked by the relations the text itself draws. A **gold ring** marks terms flagged KEY / on the exam. |
-| **Trail of Wisdom** | Chapter 4 laid out as the exam asks for it: what wisdom is, then the dependency structure — smoothness is primary, and resilience (against distraction from outside) and steadiness (against distraction from within) produce it — each with its metaphor, what such a mind does, the consequences if it is absent, and Dudley Patterson's illustrative story. Then how wisdom is acquired, and how its presence or absence is detected. |
+| **Key Terms** | The book's vocabulary as a concept map — Basso's analytic terms, the Western Apache words the argument turns on, and the theory he borrows, linked by the relations the text itself draws. A **gold ring** marks the essential vocabulary. |
+| **Trail of Wisdom** | Chapter 4 laid out as a study sheet: what wisdom is, then the dependency structure — smoothness is primary, and resilience (against distraction from outside) and steadiness (against distraction from within) produce it — each with its metaphor, what such a mind does, the consequences if it is absent, and Dudley Patterson's illustrative story. Then how wisdom is acquired, and how its presence or absence is detected. |
 | **Narrative Gravity** | A D3 stream graph of what each section attends to (places, language, wisdom, the ancestral past, method), with a teacher strip under the axis. Ch. 1 is thick with the past, Ch. 3 with language, Ch. 4 almost entirely with mind. |
 
 A **global section slider** (Preface … Coda) and, in the network, **group toggles** re-render the filtered views, and a **playback control** animates the book section by section. Clicking any place, node, edge, term or condition opens the **Commentary** panel with notes and page citations — each linking into the **Guide** tab, original per-section synopses written for this project.
@@ -53,5 +55,5 @@ All content is embedded as TypeScript constants in `src/data/`, so the views can
 - `characters.ts` — teachers, learners, story-figures, cited scholars, plus a place node per entry in `places.ts`.
 - `interactions.ts` — the scene ledger: who names what, who is shot with which story, who cites whom.
 - `terms.ts` — the concept map and its typed relations.
-- `wisdom.ts` — the exam spine: the conditions of mind, acquisition, detection, and the short lists.
+- `wisdom.ts` — the spine of the argument: the conditions of mind, acquisition, detection, and the short lists.
 - `public/text/book-1..6.json` — the section guides.

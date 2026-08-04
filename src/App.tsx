@@ -5,15 +5,15 @@ import GroupFilters from './components/GroupFilters';
 import NetworkGraph from './components/NetworkGraph';
 import StreamGraph from './components/StreamGraph';
 import TermsGraph from './components/TermsGraph';
-import ExamView from './components/ExamView';
+import StudyView from './components/StudyView';
 import PlacescapeView from './components/PlacescapeView';
 import TrailView from './components/TrailView';
 import SidePanel from './components/SidePanel';
 
-type View = 'exam' | 'land' | 'network' | 'terms' | 'trail' | 'stream';
+type View = 'study' | 'land' | 'network' | 'terms' | 'trail' | 'stream';
 
 const TABS: { id: View; label: string; sub: string }[] = [
-  { id: 'exam', label: 'Study / Exam', sub: 'everything the notes flagged, at a glance' },
+  { id: 'study', label: 'Study Guide', sub: 'the essentials, at a glance' },
   { id: 'land', label: 'The Named Land', sub: 'every place, and what happened there' },
   { id: 'network', label: 'People & Places', sub: 'who names what — and who gets shot with it' },
   { id: 'terms', label: 'Key Terms', sub: 'the book’s vocabulary as a concept map' },
@@ -68,7 +68,7 @@ function BrandMark() {
 }
 
 export default function App() {
-  const [view, setView] = useState<View>('exam');
+  const [view, setView] = useState<View>('study');
   const showFilters = FILTERED_VIEWS.includes(view);
 
   return (
@@ -128,7 +128,7 @@ export default function App() {
         {/* ——— Main: view + reading panel (side-by-side on desktop, stacked on mobile) ——— */}
         <main className="flex-1 flex flex-col md:flex-row min-h-0">
           <section className="flex-1 min-w-0 min-h-0">
-            {view === 'exam' && <ExamView onNavigate={(v) => setView(v as View)} />}
+            {view === 'study' && <StudyView onNavigate={(v) => setView(v as View)} />}
             {view === 'land' && <PlacescapeView />}
             {view === 'network' && <NetworkGraph />}
             {view === 'terms' && <TermsGraph />}

@@ -53,7 +53,7 @@ export interface Interaction {
   weight: number;
   /**
    * true = the story was aimed at someone as an arrow, or the exchange is one
-   * the exam turns on. Rendered as a red dashed edge.
+   * the argument turns on. Rendered as a red dashed edge.
    */
   arrow: boolean;
   summary: string;
@@ -83,7 +83,7 @@ export interface Place {
   id: string;
   /** Apache toponym as printed in Basso's text (see the orthography note). */
   apache?: string;
-  /** Basso's English translation — the form the lectures and exam use. */
+  /** Basso's English translation — the form most discussion of the book uses. */
   gloss: string;
   kind: NameKind;
   feature: Feature;
@@ -98,8 +98,8 @@ export interface Place {
   story?: string;
   /** What Cibecue draws from it — the moral or lesson. */
   lesson: string;
-  /** true = flagged for the exam in the course notes. */
-  exam?: boolean;
+  /** true = one of the entries flagged as essential in the reading notes. */
+  essential?: boolean;
   /** Schematic coordinates on the Named Land view (0-1000 x 0-560). */
   x: number;
   y: number;

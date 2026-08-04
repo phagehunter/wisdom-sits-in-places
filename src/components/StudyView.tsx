@@ -50,13 +50,13 @@ function Section({
   );
 }
 
-export default function ExamView({ onNavigate }: { onNavigate?: (view: string) => void }) {
+export default function StudyView({ onNavigate }: { onNavigate?: (view: string) => void }) {
   const { setSelection, openText } = useFilters();
-  const examPlaces = PLACES.filter((p) => p.exam);
-  const ch1Places = examPlaces.filter((p) => p.book === 2);
-  const laterPlaces = examPlaces.filter((p) => p.book !== 2);
-  const examTerms = TERMS.filter((t) => t.exam);
-  const domains = [...new Set(examTerms.map((t) => t.domain))] as TermDomain[];
+  const keyPlaces = PLACES.filter((p) => p.essential);
+  const ch1Places = keyPlaces.filter((p) => p.book === 2);
+  const laterPlaces = keyPlaces.filter((p) => p.book !== 2);
+  const keyTerms = TERMS.filter((t) => t.essential);
+  const domains = [...new Set(keyTerms.map((t) => t.domain))] as TermDomain[];
 
   return (
     <div className="w-full h-full overflow-y-auto p-4 space-y-4">
@@ -79,7 +79,7 @@ export default function ExamView({ onNavigate }: { onNavigate?: (view: string) =
       </section>
 
       {/* ——— the four teachers ——— */}
-      <Section title="The four Apache individuals & the lesson each teaches" flag="★★★ on the exam">
+      <Section title="The four Apache individuals & the lesson each teaches" flag="★★★ most important">
         <p className="text-[12px] text-slate-500 mb-2">
           Know each one by first and last name, their significance, and the lesson about place-names
           and language they teach Basso.
@@ -115,7 +115,7 @@ export default function ExamView({ onNavigate }: { onNavigate?: (view: string) =
       {/* ——— the four places of Ch. 1 ——— */}
       <Section
         title="Ch. 1: the four places — toponym, how it was named, the story, the lesson"
-        flag="★★★ on the exam"
+        flag="★★★ most important"
       >
         <div className="space-y-2.5">
           {ch1Places.map((p) => (
@@ -146,7 +146,7 @@ export default function ExamView({ onNavigate }: { onNavigate?: (view: string) =
           ))}
         </div>
         <p className="text-[12px] text-slate-500 mt-2">
-          The other exam-flagged places sit in later chapters:{' '}
+          The other starred places sit in later chapters:{' '}
           {laterPlaces.map((p, i) => (
             <span key={p.id}>
               {i > 0 && ' · '}
@@ -172,7 +172,7 @@ export default function ExamView({ onNavigate }: { onNavigate?: (view: string) =
       {/* ——— the trail of wisdom ——— */}
       <Section
         title="The Trail of Wisdom — three conditions, and what happens without each"
-        flag="★★★ know all three, be specific"
+        flag="★★★ know all three, in detail"
       >
         <p className="text-[13.5px] text-slate-200 leading-relaxed">
           <b className="text-sepia-200">{WISDOM_DEF.apache}</b> — {WISDOM_DEF.short}. Smoothness is
@@ -224,7 +224,7 @@ export default function ExamView({ onNavigate }: { onNavigate?: (view: string) =
       </Section>
 
       {/* ——— the arrow, and why indirection ——— */}
-      <Section title="Stalking with stories — and why nobody says it straight" flag="★ on the exam">
+      <Section title="Stalking with stories — and why nobody says it straight" flag="★ important">
         <div className="grid gap-3 lg:grid-cols-2">
           <div>
             <div className="text-[10px] uppercase tracking-widest text-slate-500">
@@ -283,7 +283,7 @@ export default function ExamView({ onNavigate }: { onNavigate?: (view: string) =
           </p>
         </Section>
 
-        <Section title="Place-making: the four questions" flag="★ on the exam">
+        <Section title="Place-making: the four questions" flag="★ important">
           <ul className="space-y-1">
             {PLACEMAKING_QUESTIONS.map((q) => (
               <li key={q} className="text-[15px] text-slate-100 italic font-reading">
@@ -354,7 +354,7 @@ export default function ExamView({ onNavigate }: { onNavigate?: (view: string) =
       </Section>
 
       {/* ——— every flagged term ——— */}
-      <Section title={`Every flagged term (${examTerms.length})`} flag="★ vocabulary">
+      <Section title={`Every flagged term (${keyTerms.length})`} flag="★ vocabulary">
         <div className="space-y-3">
           {domains.map((d) => (
             <div key={d}>
@@ -365,7 +365,7 @@ export default function ExamView({ onNavigate }: { onNavigate?: (view: string) =
                 {DOMAIN_LABELS[d]}
               </div>
               <div className="flex flex-wrap gap-1.5">
-                {examTerms
+                {keyTerms
                   .filter((t) => t.domain === d)
                   .map((t) => (
                     <button
@@ -413,11 +413,11 @@ export default function ExamView({ onNavigate }: { onNavigate?: (view: string) =
       </Section>
 
       <p className="text-[11px] text-slate-500 leading-relaxed border-t border-slate-800 pt-3">
-        Compiled from the course lectures and reading notes for ANTHR 101, weighted toward everything
-        flagged <span className="text-orange-300">EXAM</span> or{' '}
-        <span className="text-orange-300">***</span>. All summaries and glosses are original
-        paraphrase; page numbers are the print pagination of the 1996 edition, checked against the
-        book’s own index. Basso is worth reading in full.
+        A study sheet, not a substitute: it gathers what the book returns to most insistently, with{' '}
+        <span className="text-orange-300">★</span> marking the material flagged as essential in the
+        reading notes behind this project. All summaries and glosses are original paraphrase; page
+        numbers are the print pagination of the 1996 edition, checked against the book’s own index.
+        Basso is worth reading in full.
       </p>
     </div>
   );

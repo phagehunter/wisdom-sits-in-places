@@ -23,7 +23,7 @@ export const PLACES: Place[] = [
     apache: 'Goshtł’ish Tú Bił Sikáné',
     gloss: 'Water Lies With Mud In An Open Container',
     kind: 'descriptive', feature: 'water', book: 2, pages: 'pp. 8, 11-12',
-    teacher: 'Charles Henry', exam: true, x: 120, y: 300,
+    teacher: 'Charles Henry', essential: true, x: 120, y: 300,
     naming:
       'Ancestors exploring unfamiliar country came on a seep where clay-clouded water stood in a natural basin. Their leader judged that the place might let them survive, and said that to be able to speak of it and remember it clearly they would have to name it. So they made a picture of it with words.',
     story:
@@ -36,7 +36,7 @@ export const PLACES: Place[] = [
     apache: 'Tłiish Bi Tú’é',
     gloss: 'Snakes’ Water',
     kind: 'descriptive', feature: 'water', book: 2, pages: 'pp. 13-15, 17, 31',
-    teacher: 'Charles Henry', exam: true, x: 90, y: 100,
+    teacher: 'Charles Henry', essential: true, x: 90, y: 100,
     naming:
       'Named for a spring at the foot of a sandstone bluff where snakes were plentiful — the beings who protect the water. Long ago a man who knew how to address them made the people wait at a distance until he had asked the snakes to move aside.',
     story:
@@ -49,7 +49,7 @@ export const PLACES: Place[] = [
     apache: 'Gad ’O’ááhá',
     gloss: 'Juniper Tree Stands Alone',
     kind: 'clan', feature: 'tree', book: 2, pages: 'pp. 17, 19-22',
-    teacher: 'Charles Henry', exam: true, x: 150, y: 410,
+    teacher: 'Charles Henry', essential: true, x: 150, y: 410,
     naming:
       'A flat marked by a single juniper, where ancestors found runoff enough to plant corn. Having decided to stay, they took the place’s name for their own and became Gad ’O’ááhń — Juniper Tree Stands Alone People. This is the middle layer of naming: clan names are built from descriptive place-names.',
     story:
@@ -62,7 +62,7 @@ export const PLACES: Place[] = [
     apache: 'Chaa Bi Dałt’ohé',
     gloss: 'Shades Of Shit',
     kind: 'commemorative', feature: 'plain', book: 2, pages: 'pp. 23-24, 27-28',
-    teacher: 'Charles Henry', exam: true, x: 300, y: 505,
+    teacher: 'Charles Henry', essential: true, x: 300, y: 505,
     naming:
       'Named for what happened there rather than for how it looks — the commemorative layer, awarded last, after the Apaches had made the land their own and were living with both the rewards and the painful problems of community life.',
     story:
@@ -101,7 +101,7 @@ export const PLACES: Place[] = [
     apache: 'Ndee Dah Naazíné',
     gloss: 'Men Stand Above Here And There',
     kind: 'commemorative', feature: 'rock', book: 3, pages: 'pp. 54, 57',
-    teacher: 'Nick Thompson', exam: true, x: 520, y: 410,
+    teacher: 'Nick Thompson', essential: true, x: 520, y: 410,
     naming: 'Commemorates what happened at the spot where an Apache policeman released his prisoner.',
     story:
       'Long ago a man killed a cow off the reservation and was arrested — by a policeman who was himself Apache. He had joined with outsiders against one of his own; when he died, his relatives dispensed with customary mortuary ritual, which showed with devastating clarity that they meant to disown him completely.',
@@ -113,7 +113,7 @@ export const PLACES: Place[] = [
     apache: 'Tséé Łigai Dah Sidilé',
     gloss: 'White Rocks Lie Above In A Compact Cluster',
     kind: 'descriptive', feature: 'rock', book: 3, pages: 'pp. 38, 87-88',
-    teacher: 'Benson Lewis', exam: true, x: 560, y: 100,
+    teacher: 'Benson Lewis', essential: true, x: 560, y: 100,
     naming:
       'Built by stacking prefixes on a stem: rock + white + above ground level + three or more forming a compact cluster + the one. The name is a description precise enough to be a picture.',
     story:
@@ -161,7 +161,7 @@ export const PLACES: Place[] = [
     apache: 'Tséé Hadigaiyé',
     gloss: 'Line Of White Rocks Extends Up And Out',
     kind: 'descriptive', feature: 'rock', book: 4, pages: 'pp. 46, 79, 93-94, 100',
-    teacher: 'Lola Machuse', exam: true, x: 740, y: 185,
+    teacher: 'Lola Machuse', essential: true, x: 740, y: 185,
     naming: 'Rock + up and out + extends in a line + white + the one.',
     story:
       'Lola Machuse speaks it first: it happened at Line Of White Rocks Extends Up And Out, at this very place. The tale: a girl living with her maternal grandmother was sent out regularly for firewood and told always to avoid the rocky canyon where many snakes lived. One hot day, thirsty and unwilling to carry a heavy load the long way round, she went down through the canyon anyway, slipped on loose rock, and sent her firewood scattering.',
@@ -173,7 +173,7 @@ export const PLACES: Place[] = [
     apache: 'Túzhį’ Yaahigaiyé',
     gloss: 'Whiteness Spreads Out Descending To Water',
     kind: 'descriptive', feature: 'water', book: 4, pages: 'pp. 23, 79-80, 95-96, 124-25',
-    teacher: 'Emily', exam: true, x: 780, y: 300,
+    teacher: 'Emily', essential: true, x: 780, y: 300,
     naming: 'Named for a white slope running down to water.',
     story:
       'After a pause of thirty to forty-five seconds, Emily answers Lola with a second name: yes, it happened at Whiteness Spreads Out Descending To Water, at this very place. Her version of the tale, she says, is slightly abridged: long ago a boy went to hunt deer, riding out on horseback.',
@@ -185,7 +185,7 @@ export const PLACES: Place[] = [
     apache: 'K’is Deeschii’ Naaditiné',
     gloss: 'Trail Extends Across A Red Ridge With Alder Trees',
     kind: 'descriptive', feature: 'trail', book: 4, pages: 'pp. 79-80, 97-98',
-    teacher: 'Lola Machuse', exam: true, x: 900, y: 410,
+    teacher: 'Lola Machuse', essential: true, x: 900, y: 410,
     naming: 'Alder + red ridge + a trail extends across + the one.',
     story:
       'Lola speaks the third name — truly, it happened there, at this very place. Louise laughs softly. Robert Machuse says gozh doleeł, pleasantness and goodness will be forthcoming, and Lola repeats it. Louise closes by remarking that her younger brother is foolish — addressing the remark to the dog. Then the talk stops under the ramada and everyone withdraws into their own thoughts.',
@@ -199,7 +199,7 @@ export const PLACES: Place[] = [
     apache: 'Gizhyaa’itiné',
     gloss: 'Trail Goes Down Between Two Hills',
     kind: 'commemorative', feature: 'trail', book: 5, pages: 'pp. 113-16, 118-21, 142',
-    teacher: 'Dudley Patterson', exam: true, x: 1120, y: 300,
+    teacher: 'Dudley Patterson', essential: true, x: 1120, y: 300,
     naming:
       'Descriptive in form — a trail dropping between two hills, with a great cottonwood standing at it. By the end of the chapter the name has acquired the stamp of human events, and Basso hears it as a natural stage upon the land rather than a geographical site.',
     story:
@@ -211,7 +211,7 @@ export const PLACES: Place[] = [
     id: 'coyote_piss',
     gloss: 'Coyote Pisses In The Water',
     kind: 'commemorative', feature: 'water', book: 5, pages: 'pp. 123, 136',
-    teacher: 'Dudley Patterson', exam: true, x: 1010, y: 185,
+    teacher: 'Dudley Patterson', essential: true, x: 1010, y: 185,
     naming:
       'Named for what a leader found at the crossing: fresh tracks, and Coyote’s urine still running off a slanted rock into the water.',
     story:
@@ -224,7 +224,7 @@ export const PLACES: Place[] = [
     apache: 'Na’ischagi Naadeez’áhá',
     gloss: 'Grasshoppers Piled Up Across',
     kind: 'commemorative', feature: 'plain', book: 5, pages: 'pp. 137-38, 144',
-    teacher: 'Dudley Patterson', exam: true, x: 1060, y: 100,
+    teacher: 'Dudley Patterson', essential: true, x: 1060, y: 100,
     naming: 'Named for the drifts of dead grasshoppers left piled across the ground after the storm.',
     story:
       'A black cloud came over Cibecue just as the corn was coming up — a swarm of grasshoppers eating the shoots, ch’iziid! ch’iziid! An old man saw what it meant and said that all the medicine men should work on it together. His mind was smooth; he had seen the danger in his mind. But the medicine man they went to insisted on singing alone, because the people had come to him first, and sang four nights running while the corn was eaten and the people grew frightened. Only when four medicine men finally sang together did the rainstorm come and destroy the swarm.',

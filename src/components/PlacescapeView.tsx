@@ -75,7 +75,7 @@ function Glyph({ feature, color }: { feature: Feature; color: string }) {
 export default function PlacescapeView() {
   const { bookRange, setSelection, selection } = useFilters();
   const { ref, width } = useElementSize<HTMLDivElement>();
-  const [examOnly, setExamOnly] = useState(false);
+  const [starredOnly, setStarredOnly] = useState(false);
   const [hover, setHover] = useState<Place | null>(null);
   // Device detection uses the viewport, NOT the container width — on desktop
   // the reading panel can squeeze this pane well below phone widths.
@@ -87,7 +87,7 @@ export default function PlacescapeView() {
     return () => mq.removeEventListener('change', onChange);
   }, []);
 
-  const shown = useMemo(() => PLACES.filter((p) => !examOnly || p.exam), [examOnly]);
+  const shown = useMemo(() => PLACES.filter((p) => !starredOnly || p.essential), [starredOnly]);
   const inWindow = (p: Place) => p.book >= bookRange[0] && p.book <= bookRange[1];
   const selectedId = selection?.kind === 'place' ? selection.id : null;
 
@@ -103,8 +103,8 @@ export default function PlacescapeView() {
             naming layer — <span style={{ color: KIND_COLORS.descriptive }}>descriptive</span>,{' '}
             <span style={{ color: KIND_COLORS.clan }}>clan</span>,{' '}
             <span style={{ color: KIND_COLORS.commemorative }}>commemorative</span> — and a gold star
-            marks the places the exam asks for. Click any place for its name, its story and its
-            lesson. <b>Not a map:</b> the layout is schematic on purpose (see the note below).
+            marks the places that carry the most weight. Click any place for its name, its story and
+            its lesson. <b>Not a map:</b> the layout is schematic on purpose (see the note below).
           </p>
           <p className="sm:hidden text-[10px] text-slate-500">
             ← swipe sideways · tap a place for its story →
@@ -113,11 +113,11 @@ export default function PlacescapeView() {
         <label className="flex items-center gap-1.5 text-xs text-slate-300 cursor-pointer select-none hover:text-slate-100 whitespace-nowrap">
           <input
             type="checkbox"
-            checked={examOnly}
-            onChange={() => setExamOnly((v) => !v)}
+            checked={starredOnly}
+            onChange={() => setStarredOnly((v) => !v)}
             className="accent-orange-500 w-3.5 h-3.5"
           />
-          ★ exam places only
+          ★ starred places only
         </label>
       </div>
 
@@ -183,7 +183,7 @@ export default function PlacescapeView() {
                     strokeDasharray={p.kind === 'commemorative' ? '3 2.5' : undefined}
                   />
                   <Glyph feature={p.feature} color={color} />
-                  {p.exam && (
+                  {p.essential && (
                     <text
                       x={0}
                       y={-17}

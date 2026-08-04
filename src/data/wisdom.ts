@@ -1,8 +1,8 @@
 /**
- * The exam spine. Everything the course notes flag with "EXAM" or "***" lives
- * here in structured form: the four teachers and their lessons, the three
+ * The spine of the argument. Everything the reading notes flagged as essential
+ * lives here in structured form: the four teachers and their lessons, the three
  * conditions of mind with the consequences of each failing, how wisdom is
- * acquired and detected, and the short lists the lectures kept returning to.
+ * acquired and detected, and the short lists worth committing to memory.
  */
 
 export interface Condition {
@@ -15,7 +15,7 @@ export interface Condition {
   metaphor: string;
   /** What such a mind does. */
   does: string;
-  /** Consequences if the condition is not met — the exam asks for these. */
+  /** Consequences if the condition is not met — the part most often skipped. */
   ifAbsent: string[];
   /** Which class of distraction it wards off. */
   wards?: string;
@@ -36,7 +36,7 @@ export const WISDOM_DEF = {
 };
 
 /**
- * NOTE the dependency structure, which the exam answer should state:
+ * NOTE the dependency structure, which any account of this should state:
  * smoothness is the PRIMARY condition, and it is produced by the two
  * subsidiary ones — resilience against external distraction, steadiness
  * against internal distraction.
@@ -111,7 +111,7 @@ export const CONDITIONS: Condition[] = [
   },
 ];
 
-/** How wisdom is acquired — the exam asks for this with an example. */
+/** How wisdom is acquired — worth knowing with a concrete example. */
 export const ACQUISITION = [
   {
     step: 'It is nobody’s birthright',

@@ -107,8 +107,8 @@ export default function TermsGraph() {
       ctx.fillStyle = color;
       ctx.fill();
 
-      // Exam-flagged terms wear a gold ring so the KEY vocabulary stands out.
-      if (n.term.exam) {
+      // Essential terms wear a gold ring so the key vocabulary stands out.
+      if (n.term.essential) {
         ctx.beginPath();
         ctx.arc(node.x, node.y, r + 2.2, 0, 2 * Math.PI);
         ctx.strokeStyle = '#e0c088';
@@ -209,7 +209,7 @@ export default function TermsGraph() {
           ))}
         </div>
         <div className="pt-1 border-t border-slate-700/60 text-slate-400 space-y-0.5">
-          <div><span className="text-sepia-300">◯ gold ring</span> = flagged KEY / on the exam</div>
+          <div><span className="text-sepia-300">◯ gold ring</span> = flagged as key</div>
           <div>size ∝ connections · click a term for its full entry</div>
         </div>
       </div>
@@ -225,7 +225,7 @@ export default function TermsGraph() {
         >
           <div className="flex items-baseline justify-between gap-2">
             <span className="font-display text-base italic text-sepia-200">
-              {hoverNode.term.exam && <span className="text-orange-300 not-italic mr-1">★</span>}
+              {hoverNode.term.essential && <span className="text-orange-300 not-italic mr-1">★</span>}
               {hoverNode.term.term}
             </span>
             <span

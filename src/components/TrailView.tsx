@@ -3,11 +3,11 @@ import { useFilters } from '../context/FilterContext';
 import type { Condition } from '../data/wisdom';
 
 /**
- * The Trail of Wisdom — Ch. 4 laid out as the exam asks for it: what wisdom is,
- * the three conditions of mind with the consequences of each failing, how it is
+ * The Trail of Wisdom — Ch. 4 laid out as a study sheet: what wisdom is, the
+ * three conditions of mind with the consequences of each failing, how it is
  * acquired, and how its presence or absence is detected.
  *
- * The layout encodes the dependency the exam answer needs: smoothness is the
+ * The layout encodes the dependency that matters: smoothness is the
  * PRIMARY condition, and it is produced and preserved by the two subsidiary
  * ones — resilience against distraction from outside, steadiness against
  * distraction from within.
