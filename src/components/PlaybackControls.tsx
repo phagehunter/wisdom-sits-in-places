@@ -1,0 +1,84 @@
+import { useFilters, type PlayMode } from '../context/FilterContext';
+import { BOOK_SHORT, BOOK_TITLES, SECTION_COUNT } from '../data/bookTitles';
+
+/**
+ * Play-through control: animates the global section window across the book.
+ * State lives in FilterContext, so playback continues across view switches —
+ * this component is a pure control surface, rendered in both the Network
+ * and Map views.
+ */
+export default function PlaybackControls() {
+  const { playing, playBook, playMode, setPlayMode, playToggle, playReset } = useFilters();
+  const active = playBook !== null;
+
+  return (
+    <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-[1000] max-w-[95vw] flex items-center gap-2 sm:gap-3 bg-slate-900/90 border border-slate-700 rounded-full pl-2 pr-3 sm:pr-4 py-1.5 shadow-xl backdrop-blur-sm">
+      {/* Play / pause */}
+      <button
+        onClick={playToggle}
+        className="w-9 h-9 rounded-full bg-orange-600 hover:bg-orange-500 text-slate-950 flex items-center justify-center text-sm transition-colors"
+        title={playing ? 'Pause' : 'Play through the book'}
+        aria-label={playing ? 'Pause playback' : 'Play through the book'}
+      >
+        {playing ? '❚❚' : '▶'}
+      </button>
+
+      {/* Playhead readout + progress */}
+      <div className="w-32 sm:w-56">
+        <div className="flex items-baseline justify-between gap-2">
+          <span className="text-sm text-slate-100 font-semibold whitespace-nowrap">
+            {active ? `§${playBook}` : 'Play the book'}
+          </span>
+          <span className="hidden sm:inline text-[11px] text-slate-400 truncate">
+            {active ? BOOK_TITLES[playBook!] ?? BOOK_SHORT[playBook!] : 'watch it unfold section by section'}
+          </span>
+        </div>
+        <div className="mt-1 h-1 rounded bg-slate-700 overflow-hidden">
+          <div
+            className="h-full bg-orange-500 transition-[width] duration-500 ease-out"
+            style={{ width: `${((playBook ?? 0) / SECTION_COUNT) * 100}%` }}
+          />
+        </div>
+      </div>
+
+      {/* Mode toggle (hidden on phones — Growing is the default) */}
+      <div className="hidden sm:flex rounded-md overflow-hidden border border-slate-700 text-[11px]">
+        {(
+          [
+            ['cumulative', 'Growing'],
+            ['single', 'By section'],
+          ] as [PlayMode, string][]
+        ).map(([m, label]) => (
+          <button
+            key={m}
+            onClick={() => setPlayMode(m)}
+            className={`px-2 py-1 transition-colors ${
+              playMode === m
+                ? 'bg-orange-900/60 text-orange-200'
+                : 'bg-slate-900 text-slate-400 hover:text-slate-200'
+            }`}
+            title={
+              m === 'cumulative'
+                ? 'Network accumulates from the Prologue'
+                : "Each section's cast in isolation"
+            }
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {/* Reset */}
+      {active && (
+        <button
+          onClick={playReset}
+          className="text-slate-400 hover:text-slate-200 text-sm"
+          title="Reset to the whole book"
+          aria-label="Reset playback"
+        >
+          ↺
+        </button>
+      )}
+    </div>
+  );
+}

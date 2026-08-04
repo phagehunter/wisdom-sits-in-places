@@ -1,0 +1,182 @@
+import type { Character } from '../types';
+import { PLACES } from './places';
+
+/**
+ * The cast of Wisdom Sits in Places. Basso built the book around four Apache
+ * teachers, so the network keeps people, places, story-figures and cited
+ * scholars in one graph on purpose: in Cibecue a mountain can be spoken of as
+ * a grandmother and a place can stalk a person for life, so places belong in
+ * the social network rather than under it.
+ *
+ * Every place in PLACES is also a node here, generated at the bottom of the
+ * file, so an edge can run from a person to a place they name or are shot with.
+ */
+const PEOPLE: Character[] = [
+  // ——— The ethnographer ———
+  { id: 'basso', name: 'Keith H. Basso', type: 'Person', alignment: 'Ethnographer', group_size: 1,
+    epithets: ['the ethnographer & narrator', 'first came to Cibecue in 1959, aged nineteen'],
+    note: 'Linguistic and cultural anthropologist (Harvard, then a Stanford PhD). His stated task: to work out what acts of expression involve — why they are performed, how, and to what end — and to relate them to larger ideas about the world. He calls the study of places a dimly lit region of anthropology and proposes an ethnography of lived topographies.' },
+
+  // ——— The four teachers, one per chapter ———
+  { id: 'charles_henry', name: 'Charles Henry', type: 'Person', alignment: 'Elder', group_size: 1,
+    epithets: ['Ch. 1 — Quoting the Ancestors', 'horseman; takes Basso to the named places'],
+    note: 'LESSON: pronounce the names correctly. Saying a place-name repeats the speech of the ancestors, so hurrying past a hard one is a failure of respect. He also teaches the three historical layers of naming, and insists the names do not lie: they show what is different and what is still the same. Pages: xvii, 8, 30-32, 34, 45.' },
+  { id: 'nick_thompson', name: 'Nick Thompson', type: 'Person', alignment: 'Elder', group_size: 1,
+    epithets: ['Ch. 2 — Stalking with Stories', 'medicine man, singer; old, blunt, funny'],
+    note: 'LESSON: learn the names first. Elderly, partially paralyzed, incorrigible and sharp-witted; Basso calls him Slim Coyote. His formulations carry the chapter: whitemen need paper maps, we have maps in our minds; all these places have stories, we shoot each other with them, like arrows; the land looks after us, the land keeps badness away. Pages: xvii, 38-42, 44, 47, 54-55, 58-62, 65, 69-70, 141.' },
+  { id: 'lola_machuse', name: 'Lola Machuse', type: 'Person', alignment: 'Elder', group_size: 1,
+    epithets: ['Ch. 3 — Speaking with Names', 'medicine woman, mother of eight, clan-wise'],
+    note: 'LESSON: speak with names. Just over sixty; large brown eyes, hands hardly ever still; collects medicinal plants, farms, takes part in ceremonies, and keeps fully informed on the village — people say she is practically a community unto herself. Her account of the kitchen exchange is the book’s clearest statement of Apache speech ethics. Pages: xviii, 77-83, 92-93, 95-102.' },
+  { id: 'dudley_patterson', name: 'Dudley Patterson', type: 'Person', alignment: 'Elder', group_size: 1,
+    epithets: ['Ch. 4 — Wisdom Sits in Places', 'cattleman & horseman, 54; widower'],
+    note: 'LESSON: wisdom sits in places. Short, trim, moving with a natural athlete’s grace, in laundered Levis, a red-checked shirt and a cream straw hat; measured and precise in speech, song and dance; given to joking and laughter. No one in Cibecue is more thoroughly liked, and few more respected — he is known to be wise. Asked what wisdom is, he answers: it’s in these places. Wisdom sits in places. Pages: xvi-xvii, 111-12, 114, 117, 119-21, 132, 134-35, 139-41, 144, 146-48.' },
+
+  // ——— Other Cibecue voices ———
+  { id: 'morley_cromwell', name: 'Morley Cromwell', type: 'Person', alignment: 'Elder', group_size: 1,
+    epithets: ['horseman; rides with Charles Henry & Basso'],
+    note: 'One of the horsemen on the mapping project, and one of the friends Basso names in his acknowledgments as being with the ancestors now — he says he still hears their voices as he travels through their country. Pages: xvii, 8, 32, 34, 45.' },
+  { id: 'sam_endfield', name: 'Sam Endfield', type: 'Person', alignment: 'Elder', group_size: 1,
+    epithets: ['one of the four horsemen of Ch. 4'],
+    note: 'Delivers the second barb at Talbert Paxton — so, you have smelled enough burning piss — which points at the Old Man Owl story of the girl in the tree. Pages: xviii, 111, 114, 142, 146, 148.' },
+  { id: 'charles_cromwell', name: 'Charles Cromwell', type: 'Person', alignment: 'Elder', group_size: 1,
+    epithets: ['one of the four horsemen of Ch. 4', 'distantly related to Talbert'],
+    note: 'His distant kinship matters: he is the only one of the three with any claim to instruct Talbert, and even he does it obliquely. Pages: xviii, 111, 142, 146, 148.' },
+  { id: 'robert_machuse', name: 'Robert Machuse', type: 'Person', alignment: 'Elder', group_size: 1,
+    epithets: ['Lola’s husband; speaks the closing blessing'],
+    note: 'Closes the kitchen exchange with gozh doleeł — pleasantness and goodness will be forthcoming — the formula that seals a round of speaking with names. Pages: xvii, 78-79, 97-99, 102.' },
+  { id: 'emily', name: 'Emily', type: 'Person', alignment: 'Elder', group_size: 1,
+    epithets: ['answers Lola with the second place-name'],
+    note: 'Offers Whiteness Spreads Out Descending To Water, and later gives Basso her own slightly abridged version of the tale that belongs to it.' },
+  { id: 'ruth_patterson', name: 'Ruth Patterson', type: 'Person', alignment: 'Elder', group_size: 1,
+    epithets: ['Dudley’s kinswoman', 'says of wisdom: it’s difficult!'],
+    note: 'Her flat remark in Apache — wisdom, it’s difficult — is what sends Basso into ethnographic gloom and starts the whole inquiry of Ch. 4: in what does wisdom consist, how would you detect it, how is it acquired? Pages: xviii, 121, 123, 129, 148-49.' },
+  { id: 'grandmother', name: 'Dudley’s grandmother', type: 'Person', alignment: 'Elder', group_size: 1,
+    epithets: ['the source of the trail of wisdom', 'quoted at length by Dudley'],
+    note: 'Dudley learned the three conditions of mind from her, and quotes her speech: your life is like a trail, you must be watchful as you go; wisdom sits in places, it’s like water that never dries up; you need to drink from places. He is careful to say he did not make it up. Pages: 97-98 in Basso’s account of Ch. 4 material.' },
+  { id: 'ellen_tessay', name: 'Ellen Josay Tessay', type: 'Person', alignment: 'Elder', group_size: 1,
+    epithets: ['leader of the Juniper Tree Stands Alone People'],
+    note: 'Oldest member and primary spokesperson of the clan named for the place. Weeding her corn, she answers that she is looking after her children. Page 22.' },
+  { id: 'annie_peaches', name: 'Annie Peaches', type: 'Person', alignment: 'Elder', group_size: 1,
+    epithets: ['aged 77 in 1978', 'the land is always stalking people'],
+    note: 'Her four sentences are the epigraph to the whole argument: the land is always stalking people; the land makes people live right; the land looks after us; the land looks after people. Pages: xviii, 38-39, 52, 61-62.' },
+  { id: 'benson_lewis', name: 'Benson Lewis', type: 'Person', alignment: 'Elder', group_size: 1,
+    epithets: ['aged 64 in 1979', 'that mountain is like my grandmother'],
+    note: 'Thinks of White Rocks Lie Above In A Compact Cluster as if it were his maternal grandmother; hearing the name elsewhere, he sees it. Its name is like a picture. Stories go to work on you like arrows; they make you replace yourself. Pages: 38-39, 46, 53, 61-62.' },
+  { id: 'ronnie_lupe', name: 'Ronnie Lupe', type: 'Person', alignment: 'Elder', group_size: 1,
+    epithets: ['Chairman, White Mountain Apache Tribe', 'aged 42 in 1978'],
+    note: 'Frames the book’s worry in the preface: our children are losing the land, it doesn’t go to work on them anymore, they don’t know the stories about what happened at these places — that’s why some get into trouble. His phrase for what Basso is studying is how people know their country. Pages: xv-xvi, xviii, 38-39, 62.' },
+  { id: 'wilson_lavender', name: 'Wilson Lavender', type: 'Person', alignment: 'Learner', group_size: 1,
+    epithets: ['aged 52 in 1975', 'went to L.A. and forgot the names'],
+    note: 'His self-report is the negative proof of the whole thesis: training as a mechanic in Los Angeles, he started drinking, hung around bars, fought with his wife — I forget about this country here around Cibecue, I forget all the names and stories, I don’t hear them in my mind anymore, I forget how to live right. Pages: 39, 61.' },
+
+  // ——— Those being taught, or shot ———
+  { id: 'talbert_paxton', name: 'Talbert Paxton', type: 'Person', alignment: 'Learner', group_size: 1,
+    epithets: ['the youngest of the four horsemen', 'an accomplished roper'],
+    note: 'Normally restrained and unquestionably intelligent, but absent three weeks: drinking, love affairs, and spreading rumours about women who had rejected him. Shot with Old Man Owl at Trail Goes Down Between Two Hills, he answers only, for a while I couldn’t see — an admission that his moral vision had been impaired and is now restored.' },
+  { id: 'louise', name: 'Louise', type: 'Person', alignment: 'Learner', group_size: 1,
+    epithets: ['Lola’s guest; sad and worried', 'the woman the names are spoken for'],
+    note: 'Her younger brother is ill after stepping on a snakeskin and ignoring a warning. Three place-names are laid before her instead of advice; she laughs softly, and closes by calling him foolish — telling it to the dog rather than to the room.' },
+  { id: 'louise_brother', name: 'Louise’s younger brother', type: 'Person', alignment: 'Learner', group_size: 1,
+    epithets: ['stepped on a snakeskin; refused help', 'now sick'],
+    note: 'Warned by a crewman that contact with snakes is always dangerous and told to see a snake medicine person at once, he smiled and said no harm would befall him. He is the absent target of the entire kitchen exchange, and is never once named in it.' },
+  { id: 'apache_youth', name: 'The young people of Cibecue', type: 'Collective', alignment: 'Learner', group_size: 60,
+    epithets: ['told to drink from places, then work on the mind'],
+    note: 'Instruction usually starts when preadolescents notice that adult life makes endless demands. They are told to stay alert, remember everything they see, report anything out of the ordinary, watch adults worth emulating, and travel with people who will talk to them about the places they pass.' },
+
+  // ——— Figures inside the stories ———
+  { id: 'ancestors', name: 'The ancestors', type: 'Collective', alignment: 'Ancestor', group_size: 200,
+    epithets: ['who came, settled, toiled and endured', 'quoted whenever a name is spoken'],
+    note: 'Place-names are their speech, preserved verbatim. Apache place-making holds them up as worthy of emulation — except when they fail to do what is right and endanger the group, and then they are punished or killed.' },
+  { id: 'old_man_owl', name: 'Old Man Owl', type: 'Figure', alignment: 'Ancestor', group_size: 1,
+    epithets: ['lustful, half-blind, incorrigible', 'the mirror held up to Talbert'],
+    note: 'In one story two sisters lure him and he runs back and forth between the two hills; in another he tries to burn down the tree a girl has climbed and she keeps dousing the fire from above. Unlike Talbert, he never curbs his appetites and stays hopelessly at odds with everyone around him.' },
+  { id: 'coyote', name: 'Coyote', type: 'Figure', alignment: 'Ancestor', group_size: 1,
+    epithets: ['pisses in the water', 'the danger you cannot see'],
+    note: 'Subject of a minor narrative genre of his own. At the crossing his traces are invisible to thirsty people who trust their eyes — the reason a leader looks around first.' },
+  { id: 'wise_leader', name: 'The wise leader', type: 'Figure', alignment: 'Ancestor', group_size: 1,
+    epithets: ['saw danger in his mind', 'told them not to drink'],
+    note: 'The positive figure of Dudley’s first story: he grasps the situation for what it is, stays unperturbed, and averts misfortune by the clear and wary vision that is the hallmark of wisdom.' },
+  { id: 'proud_medicine_man', name: 'The medicine man who sang alone', type: 'Figure', alignment: 'Ancestor', group_size: 1,
+    epithets: ['I will work alone', 'far too proud'],
+    note: 'Refuses to sing with the others because the people came to him first, and sings four fruitless nights while the corn is eaten. His mind is not smooth; he thinks only of himself. The rain comes only when four sing together.' },
+  { id: 'firewood_girl', name: 'The girl sent for firewood', type: 'Figure', alignment: 'Ancestor', group_size: 1,
+    epithets: ['took the snake canyon anyway', 'slipped, and scattered her wood'],
+    note: 'Told always to go the long way round, she took the short cut through the rocky canyon where snakes lived because the wood was heavy and the day was hot. Lola offers her to Louise as a picture, not an accusation.' },
+  { id: 'stingy_people', name: 'The people who would not share', type: 'Collective', alignment: 'Ancestor', group_size: 12,
+    epithets: ['much corn, no pity', 'penned in their own filth'],
+    note: 'The moral centre of Shades Of Shit: as relatives we make each other rich because we help each other in times of need — it has been this way since the beginning.' },
+  { id: 'apache_policeman', name: 'The Apache policeman', type: 'Figure', alignment: 'Ancestor', group_size: 1,
+    epithets: ['arrested one of his own', 'disowned in death'],
+    note: 'His relatives dispensed with the customary mortuary ritual, which showed with devastating clarity that they wished to disown him completely. The tale is aimed at anyone who acts like a whiteman against his own community.' },
+
+  // ——— The scholars Basso reads against Cibecue ———
+  { id: 'heidegger', name: 'Martin Heidegger', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['dwelling', 'spaces receive their being from localities'],
+    note: 'Basso follows his lead in treating dwelling as the multiple lived relationships people maintain with places — it is only by virtue of these that space acquires meaning at all. Pages: xvi, 74, 106-07.' },
+  { id: 'momaday', name: 'N. Scott Momaday', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['Kiowa writer', 'reciprocal appropriation'],
+    note: 'Man invests himself in the landscape and simultaneously incorporates the landscape into his own most fundamental experience — an act of imagination that is moral in kind. Only in reference to the earth can he persist in his identity. Pages: xvi-xvii, 34-35, 64, 75, 143.' },
+  { id: 'deloria', name: 'Vine Deloria, Jr.', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['Standing Rock Sioux', 'spatial conceptions of history'],
+    note: 'Most American Indian tribes hold spatial rather than temporal conceptions of history: the past lies embedded in canyons, lakes, mountains, rocks and vacant fields. Pages: xvi-xvii, 34, 37, 64.' },
+  { id: 'silko', name: 'Leslie Marmon Silko', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['Laguna Pueblo writer', 'stories cannot be separated from places'],
+    note: 'Stories function as makers of identity and cannot be separated from actual physical places; the geology is so imposing that future generations can hardly lose the stories, because you cannot live in that land without noticing a boulder — and there is always a story. Pages: xvi, 63-64.' },
+  { id: 'bakhtin', name: 'Mikhail Bakhtin', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['chronotope'],
+    note: 'Basso reads Apache places as chronotopes: points where time and space intersect and fuse, so that time takes on flesh and becomes visible for contemplation, and places stand as monuments to the community itself. Page 62.' },
+  { id: 'boas', name: 'Franz Boas', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['started place-name study, c.1900', 'Kwakiutl geographical names, 1934'],
+    note: 'Impressed by Baffin Land and Hudson Bay Inuit environmental knowledge, he suggested that geographical nomenclature was one of the most profitable ways into the mental life of a people. Pages: 43-44, 74.' },
+  { id: 'geertz', name: 'Clifford Geertz', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['local knowledge'],
+    note: 'The phrase Basso borrows for the shared bodies of knowledge with which communities make their places meaningful. Pages: xiv, xvi-xvii, 72.' },
+  { id: 'kluckhohn', name: 'Clyde Kluckhohn', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['the most interesting claims are the ones people make about themselves'],
+    note: 'Basso thinks he was right, and that attending carefully to such claims — and grasping exactly what has been claimed and why — is what makes ethnography worthwhile. Pages: 37-38.' },
+  { id: 'camus', name: 'Albert Camus', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['sense of place is something people do'],
+    note: 'Quoted at the close: sense of place is not just something people know and feel, it is something people do — which, Basso says, brings the whole idea firmly down to earth where it belongs. Page 143.' },
+  { id: 'greenbie', name: 'Barrie Greenbie', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['epigraph to Ch. 3'],
+    note: 'What each of us actually experiences of the landscape is selected, shaped and coloured by what we know. Page 71.' },
+  { id: 'spicer', name: 'Edward Spicer', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['1962: no Apache chronicler has emerged'],
+    note: 'Observed that Apaches complain constantly that the history in print misrepresents them, yet no Apache autobiographer or chronicler had appeared. Basso’s reply is that Apache history is being written all the time — orally, in place-worlds. Pages: 30-31.' },
+  { id: 'archytas', name: 'Archytas', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['epigraph to Ch. 1'],
+    note: 'Place is the first of all beings, since everything that exists is in a place and cannot exist without a place. Quoted by Simplicius, and used as the book’s opening epigraph.' },
+  { id: 'mccullers', name: 'Carson McCullers', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['epigraph to Ch. 4'],
+    note: 'To know who you are, you have to have a place to come from — from The Heart Is a Lonely Hunter, the line Basso puts at the head of the wisdom chapter. Page 105.' },
+  { id: 'chapman', name: 'William Chapman', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['the landscape of the active heart'],
+    note: 'The past is at its best when it takes us to places that counsel and instruct, that show us who we are by showing us where we have been. Pages: xvi, 4.' },
+  { id: 'husserl', name: 'Edmund Husserl', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['discovering that the world matters'],
+    note: 'Basso wants an account of the modes of awareness with which people take in their surroundings and, in Husserl’s phrase, discover that it matters. Pages: 106, 159.' },
+  { id: 'radin', name: 'Paul Radin', type: 'Person', alignment: 'Scholar', group_size: 1,
+    epithets: ['Winnebago habitat metaphors, 1916'],
+    note: 'Ideas about the habitat are often set out in elaborate similes and metaphors that seem unfathomable — until you see that they rest on firm assumptions about how nature works which, though different from ours, fit together intelligibly. Page 68.' },
+  { id: 'lakoff_johnson', name: 'Lakoff & Johnson', type: 'Collective', alignment: 'Scholar', group_size: 2,
+    epithets: ['metaphors we live by'],
+    note: 'Metaphor is understanding and experiencing one kind of thing in terms of another — which for Basso raises the ethnographic question: what must people believe about themselves and their surroundings for their metaphors to work? Page 68.' },
+];
+
+/** Place nodes, generated from PLACES so the two never drift apart. */
+const PLACE_NODES: Character[] = PLACES.map((p) => ({
+  id: `p_${p.id}`,
+  name: p.gloss,
+  type: 'Place' as const,
+  alignment: 'Place' as const,
+  group_size: 1,
+  epithets: [p.apache ?? 'toponym given in translation only', p.pages],
+  note: p.lesson,
+  placeId: p.id,
+}));
+
+export const CHARACTERS: Character[] = [...PEOPLE, ...PLACE_NODES];
+
+export const CHARACTER_BY_ID: Record<string, Character> = Object.fromEntries(
+  CHARACTERS.map((c) => [c.id, c]),
+);

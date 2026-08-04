@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-950 text-slate-200 font-body antialiased;
+}
+
+::selection {
+  background: rgba(234, 138, 76, 0.3);
+}
+
+/* Reader drop cap — first paragraph of each guide */
+.drop-cap::first-letter {
+  float: left;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: 3.1em;
+  line-height: 0.82;
+  padding-right: 0.09em;
+  color: #e0c088;
+}
+
+/* ——— Custom scrollbars for the academic dark theme ——— */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+/* ——— Dual-thumb range slider ——— */
+input[type='range'].book-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: none;
+  background: transparent;
+}
+input[type='range'].book-thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: auto;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: #ea8a4c;
+  border: 2px solid #0f172a;
+  box-shadow: 0 0 0 1px #f0a868;
+  cursor: ew-resize;
+}
+input[type='range'].book-thumb::-moz-range-thumb {
+  pointer-events: auto;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: #ea8a4c;
+  border: 2px solid #0f172a;
+  box-shadow: 0 0 0 1px #f0a868;
+  cursor: ew-resize;
+}
+
+/* Touch screens: finger-sized slider thumbs */
+@media (pointer: coarse) {
+  input[type='range'].book-thumb::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+  }
+  input[type='range'].book-thumb::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Mobile browsers: track the dynamic viewport (URL bar show/hide) */
+@supports (height: 100dvh) {
+  html,
+  body,
+  #root {
+    height: 100dvh;
+  }
+}

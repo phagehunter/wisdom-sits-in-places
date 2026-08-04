@@ -1,0 +1,8 @@
+node_modules
+dist
+*.local
+.DS_Store
+# Source texts and coursework stay out of the repo: the book is in copyright,
+# and the journal submissions contain personal reflections.
+*.pdf
+*.docx
