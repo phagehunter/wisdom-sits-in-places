@@ -1,0 +1,27 @@
+# Wisdom Sits in Places — Study Companion
+
+> A single-page study aid by Curtis Hoffmann for Keith H. Basso's Wisdom Sits in Places: Landscape and Language Among the Western Apache (University of New Mexico Press, 1996), covering the preface, all four essays and the closing meditation on sense of place. Distant reading (the named land, a concept map, a narrative-gravity chart) beside close reading (a chapter-by-chapter guide and commentary on every place, person and term). A star marks essential material.
+
+Site: https://curtishoffmann.com/wisdom-sits-in-places/
+Source: https://github.com/phagehunter/wisdom-sits-in-places
+
+## Six views
+
+- Study Guide: the book in one idea, the four Apache teachers and their lessons, the four Chapter 1 places (toponym, naming, story, lesson), the three conditions of mind, the hunting metaphor, the short lists (what the land does, the four place-making questions, the three naming layers, the three modes of landscape involvement), the speech-genre table, starred terms, per-chapter nutshells.
+- The Named Land: all eighteen named places as a schematic country; terrain glyphs; ring color by naming layer (descriptive, clan, commemorative); gold stars on the weightiest places. Deliberately not a map.
+- People and Places: a force-directed graph of people, places, story figures and cited scholars; red dashed edges mark an arrow, a story aimed at someone; node size by degree centrality.
+- Key Terms: the vocabulary as a concept map, Basso's analytic terms, the Western Apache words and the borrowed theory; a gold ring marks essential terms.
+- Trail of Wisdom: Chapter 4 as a study sheet, smoothness as primary with resilience and steadiness producing it, each with metaphor, behavior and consequences, Dudley Patterson's story, and how wisdom is acquired and detected.
+- Narrative Gravity: a stream graph of what each section attends to (places, language, wisdom, the ancestral past, method) with a teacher strip.
+
+## Ethics and orthography
+
+- No locations: Basso's survey was authorized by the White Mountain Apache Tribal Council and published under restrictions; the Named Land positions nothing geographically.
+- No invented diacritics: toponyms and Apache terms follow Basso's printed spellings; two names appear in translation only.
+- The book is in copyright and is not reproduced; every summary, gloss and guide is original paraphrase.
+
+## Contact
+
+- Author: Curtis Hoffmann, https://curtishoffmann.com/
+- Issues: https://github.com/phagehunter/wisdom-sits-in-places/issues
+- Sitemap: https://curtishoffmann.com/wisdom-sits-in-places/sitemap.xml
